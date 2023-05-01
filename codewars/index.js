@@ -1,41 +1,73 @@
-// Task 1: Create a function that takes an integer as an argument and returns "Even" for even numbers or "Odd" for odd numbers
+// let obj1 = {
+//   firstName: "Zuhriddin",
+//   fullName: function() {
+//     return `${obj1.firstName}`
+//   }
+// }
 
-function evenOrOdd(number) {
-  //write here
+// let obj2 = obj1;
+// // obj1 = null;
+
+// console.log(obj2.fullName());
+
+let data = [
+  {id:1, name: "Zuhriddin", surname: "Bahriddinov", year: 2002, age: 21 },
+  {id:2, name: "Akobir", surname: "Ziyodullayev", year: 2000, age: 22 },
+  {id:3, name: "Umar", surname: "Forsiy", year: 2002, age: 21 },
+];
+
+const getFilter=()=>{
+  let res=data.filter((value)=>value.year!=2002)
+  return data=res
+}
+// getFilter()
+// console.log(getFilter());
+
+const getSorted=()=>{
+  let str=data.sort((a,b)=>a.name.localeCompare(b.name))
+  return data= str
 }
 
-Example:  
-evenOrOdd(7), => "Odd" 
-evenOrOdd(2), => "Even"
+// getSorted()
 
-Answer:  
-function evenOrOdd(number) {
-        if(number % 2 == 0) {                      
-          return "Even"                                 
-        }                                                           
-        return "Odd"                                   
+// console.log(getSorted());
+let nex={name:"Asilbek",surname:"Asilbekov",year:2002,age:21}
+const getCreate=(obj,par)=>{
+  let crt=[...obj,{id:obj.length+1,...par}]
+  return crt
 }
 
+// console.log(getCreate(data,nex));
 
-// Task 2: Complete the solution so that it reverses all of the words within the string passed in.
 
-// Example(Input --> Output):
+let users = [
+  {id: 1, firstName: 'akobir', lastName: 'Ziyodullayev', year: 2000},
+  {id: 2, firstName: 'Luqmon', lastName: 'Melikov', year: 2001},
+  {id: 3, firstName: 'Akbar', lastName: 'Malikov', year: 2000},
+  {id: 4, firstName: 'Ikrom', lastName: 'Samiyev', year: 2002},
+  {id: 5, firstName: 'Begzod', lastName: 'Nuriddinov', year: 2000},
+  {id: 6, firstName: 'Dadaxon', lastName: 'Mexrojov', year: 2001},
+];
 
-// "The greatest victory is that which requires no battle" --> "battle no requires which that is victory greatest The"
 
-Answer: 
-function reverseWords(str){
-    let arr =  str.split(" ")
-    let result = ""
-    for(i = 0; i < arr.length; i++) {
-      if(arr.length > 1) {
-        result += `${arr.slice(-1)} `
-      }
-      if(arr.length == 1) {
-        result += arr.slice(-1)
-      }
-      arr.pop()
-      i-- 
+const getUpdate = data => {
+  let res = users.map (
+    value =>
+    value.id === data.id
+    ? {
+      ...value,
+      [data.firstName]: data.fistNameValue,
+      [data.lastName]: data.lastNameValue,
     }
-      return result ; // reverse those words
-  }
+    : value
+    );
+    return users = res;
+  };
+  console.log(getUpdate ({
+    id: 1,
+    firstName: 'firstName',
+    lastName: 'lastName',
+    fistNameValue: 'Adiba',
+    lastNameValue: 'Ziyodullayeva',
+  })
+);
